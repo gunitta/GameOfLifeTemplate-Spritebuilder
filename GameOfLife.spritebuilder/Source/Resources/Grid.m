@@ -61,7 +61,7 @@ static const int GRID_COLUMNS = 10;
             [self addChild:creature] ;
             
             _gridArray[i][j] = creature;
-            creature.isAlive = YES;
+            //creature.isAlive = YES;
             x+=_cellWidth;
         
         }
@@ -83,8 +83,11 @@ static const int GRID_COLUMNS = 10;
 }
 -(Creature *)creatureForTouchPosition:(CGPoint)touchPosition
 {
+    NSLog(@"Error here beginning");
     int row = touchPosition.y;
     int column = touchPosition.x;
+    
+    NSLog(@"Error here");
     
     //get the row that was touched and return the Greature on it
     return _gridArray[row][column];
