@@ -61,11 +61,32 @@ static const int GRID_COLUMNS = 10;
             [self addChild:creature] ;
             
             _gridArray[i][j] = creature;
-            creature.isAlive = YES;
+            //creature.isAlive = YES;
             x+=_cellWidth;
         
         }
         y+=_cellHeight;
     }
+}
+
+-(void)touchBegan:(UITouch *)touch withEvent:(UIEvent *)event
+{
+    //get the x, y coordinates of the touch
+    CGPoint touchLocation = [touch locationInNode:self];
+    //get the the Creature at the location
+    Creature *creature = [self creatureForTouchPosition: touchLocation];
+    
+    //we should kill of it is alive and bring to life id it is dead
+    creature.isAlive = !creature.isAlive;
+    
+
+}
+-(Creature *)creatureForTouchPosition:(CGPoint)touchPosition
+{
+    int row = touchPosition.y;
+    int column = touchPosition.x;
+    
+    //get the row that was touched and return the Greature on it
+    return _gridArray[row][column];
 }
 @end
