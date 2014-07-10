@@ -61,7 +61,7 @@ static const int GRID_COLUMNS = 10;
             [self addChild:creature] ;
             
             _gridArray[i][j] = creature;
-            //creature.isAlive = YES;
+            creature.isAlive = YES;
             x+=_cellWidth;
         
         }
