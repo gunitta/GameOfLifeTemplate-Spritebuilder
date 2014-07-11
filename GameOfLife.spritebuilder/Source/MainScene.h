@@ -7,7 +7,9 @@
 //
 
 #import "CCNode.h"
+#import "Grid.h"
 
 @interface MainScene : CCNode
+
 
 @end
